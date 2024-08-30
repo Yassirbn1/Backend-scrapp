@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\scrapp app.props" />
+</Project>
