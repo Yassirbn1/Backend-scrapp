@@ -14,7 +14,7 @@ namespace scrapp_app.Data
         public DbSet<User> Users { get; set; }
         public DbSet<ScrappData> ScrappData { get; set; }
 
-        public DbSet<QuantitéEntree> QuantiteEntree { get; set; }
+       
         public DbSet<ScrappDataShift> ScrappDataShift { get; set; }
 
         public DbSet<ScrappDataHistory> ScrappDataHistory { get; set; }

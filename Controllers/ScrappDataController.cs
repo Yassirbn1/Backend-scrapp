@@ -6,6 +6,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using projetStage.Models;
@@ -122,24 +123,7 @@ namespace scrapp_app.Controllers
             return CreatedAtAction(nameof(GetScrappData), new { id = scrappData.Id }, scrappData);
         }
 
-        [HttpGet("quantiteEntreePrByDate")]
-        public async Task<IActionResult> GetQuantiteEntreePrByDate(DateTime date)
-        {
-            // Appeler la procédure stockée
-            var quantiteEntreePr = await _context.QuantiteEntree
-                .FromSqlInterpolated($"EXEC GetValuesByDate {date}")
-                .ToListAsync();
-
-            if (quantiteEntreePr == null || !quantiteEntreePr.Any())
-            {
-                _logger.LogWarning($"No QuantitéEntreePr found for date {date.ToShortDateString()}.");
-                // Retourner un tableau vide avec un code de succès 200
-                return Ok(new List<QuantitéEntree>());
-            }
-
-            _logger.LogInformation($"QuantitéEntreePr for date {date.ToShortDateString()} retrieved.");
-            return Ok(quantiteEntreePr);
-        }
+ 
 
 
 
@@ -267,6 +251,59 @@ namespace scrapp_app.Controllers
 
             await _context.ScrappDataHistory.AddAsync(history);
             await _context.SaveChangesAsync();
+        }
+        [HttpGet("ValuesByDate")]
+        public async Task<IActionResult> GetValuesByDate([FromQuery] DateTime date)
+        {
+            try
+            {
+                // Vérifie si la date est valide, sinon utilise la date actuelle
+                var queryDate = date.Date != DateTime.MinValue ? date.Date : DateTime.UtcNow.Date;
+
+                // Liste pour stocker les résultats
+                var values = new List<int>();
+
+                // Ouvre une connexion à la base de données
+                using (var command = _context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "EXEC GetValuesByDate @DateParam";
+                    command.CommandType = System.Data.CommandType.Text;
+                    command.Parameters.Add(new SqlParameter("@DateParam", queryDate));
+
+                    _context.Database.OpenConnection();
+
+                    // Exécute la commande et lit les résultats
+                    using (var result = await command.ExecuteReaderAsync())
+                    {
+                        while (await result.ReadAsync())
+                        {
+                            values.Add(result.GetInt32(0)); // Lit la première colonne en tant qu'entier
+                        }
+                    }
+                }
+
+                if (!values.Any())
+                {
+                    _logger.LogInformation($"Aucune valeur trouvée pour la date : {queryDate}");
+                    return Ok(new List<int>()); // Retourne une liste vide si aucune valeur n'est trouvée
+                }
+
+                _logger.LogInformation($"Valeurs pour la date {queryDate} récupérées avec succès.");
+                return Ok(values);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Une erreur est survenue lors de la récupération des valeurs pour la date spécifiée.");
+                return StatusCode(500, "Une erreur est survenue lors de la récupération des valeurs.");
+            }
+            finally
+            {
+                // Ferme la connexion à la base de données si elle est ouverte
+                if (_context.Database.GetDbConnection().State == System.Data.ConnectionState.Open)
+                {
+                    _context.Database.CloseConnection();
+                }
+            }
         }
 
 
