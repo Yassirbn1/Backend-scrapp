@@ -1,0 +1,53 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = scrap_app
+build_property.RootNamespace = scrap_app
+build_property.ProjectDir = C:\Users\HP\Desktop\Stage scrap\scrap app\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\HP\Desktop\Stage scrap\scrap app
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/ScrapData/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NyYXBEYXRhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/ScrapData/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NyYXBEYXRhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/ScrapData/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NyYXBEYXRhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/ScrapData/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NyYXBEYXRhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/ScrapData/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NyYXBEYXRhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/ScrapData/_Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NyYXBEYXRhXF9Gb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Stage scrap/scrap app/Views/Shared/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

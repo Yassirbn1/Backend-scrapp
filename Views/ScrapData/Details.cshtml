@@ -1,0 +1,39 @@
+﻿@model scrap_app.Models.ScrapData
+
+<h1>Details Scrap Data</h1>
+
+<div>
+    <h4>Date: @Model.Date.ToShortDateString()</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Quantity Entered
+        </dt>
+        <dd class="col-sm-10">
+            @Model.QuantityEntered
+        </dd>
+        <dt class="col-sm-2">
+            Quantity Rejected
+        </dt>
+        <dd class="col-sm-10">
+            @Model.QuantityRejected
+        </dd>
+        <dt class="col-sm-2">
+            Team
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Team
+        </dd>
+        <dt class="col-sm-2">
+            Reason
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Reason
+        </dd>
+    </dl>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

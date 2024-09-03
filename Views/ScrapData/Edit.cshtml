@@ -1,0 +1,34 @@
+﻿@model scrap_app.Models.ScrapData
+
+<h1>Edit Scrap Data</h1>
+
+<form asp-action="Edit" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <label asp-for="Date" class="control-label"></label>
+        <input asp-for="Date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="QuantityEntered" class="control-label"></label>
+        <input asp-for="QuantityEntered" class="form-control" />
+        <span asp-validation-for="QuantityEntered" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="QuantityRejected" class="control-label"></label>
+        <input asp-for="QuantityRejected" class="form-control" />
+        <span asp-validation-for="QuantityRejected" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Team" class="control-label"></label>
+        <input asp-for="Team" class="form-control" />
+        <span asp-validation-for="Team" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Reason" class="control-label"></label>
+        <input asp-for="Reason" class="form-control" />
+        <span asp-validation-for="Reason" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<scrap_app.Models.ScrapData>
+
+<h1>Scrap Data List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Quantity Entered
+            </th>
+            <th>
+                Quantity Rejected
+            </th>
+            <th>
+                Team
+            </th>
+            <th>
+                Reason
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Date.ToShortDateString()
+                </td>
+                <td>
+                    @item.QuantityEntered
+                </td>
+                <td>
+                    @item.QuantityRejected
+                </td>
+                <td>
+                    @item.Team
+                </td>
+                <td>
+                    @item.Reason
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
